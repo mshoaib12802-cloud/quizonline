@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Questions</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/management.css" />
+  </head>
+  <body>
+    <script src="assets/app.js"></script>
+    <script src="assets/layout.js"></script>
+    <main class="container">
+      <form
+        class="form-card"
+        onsubmit="
+          event.preventDefault();
+          addQuestion();
+        "
+      >
+        <span class="eyebrow">QUIZ BUILDER</span>
+        <h1 id="question-form-title">Add question</h1>
+        <input id="question-id" type="hidden" />
+        <div id="message"></div>
+        <div class="form-grid">
+          <label
+            >Question type<select
+              id="question-type"
+              onchange="
+                document.querySelector('#mcq-fields').hidden =
+                  this.value === 'short'
+              "
+            >
+              <option value="mcq">Multiple choice</option>
+              <option value="short">Short answer</option>
+            </select></label
+          ><label
+            >Marks<input id="marks" type="number" min="1" value="1"
+          /></label>
+        </div>
+        <label>Question<textarea id="question" required></textarea></label>
+        <div id="mcq-fields">
+          <label>Option A<input id="a" /></label
+          ><label>Option B<input id="b" /></label
+          ><label>Option C<input id="c" /></label
+          ><label>Option D<input id="d" /></label
+          ><label
+            >Correct option<select id="correct">
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              <option>D</option>
+            </select></label
+          >
+        </div>
+        <label
+          >Explanation / model answer<textarea
+            id="explanation"
+          ></textarea></label
+        ><button id="question-submit">Save question</button>
+        <a class="button secondary" href="admin.html">Finish quiz</a>
+      </form>
+      <section class="editor-section">
+        <span class="eyebrow">QUESTION BANK</span>
+        <h2>Existing questions</h2>
+        <div id="question-list" class="question-list"></div>
+      </section>
+    </main>
+    <script>
+      loadQuestionEditor().catch(error);
+    </script>
+  </body>
+</html>

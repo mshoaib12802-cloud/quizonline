@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>AI Quiz</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <script src="assets/app.js"></script>
+    <script src="assets/layout.js"></script>
+    <main class="container">
+      <form
+        class="form-card"
+        onsubmit="
+          event.preventDefault();
+          generateAI();
+        "
+      >
+        <h1>Generate quiz with AI</h1>
+        <div id="message"></div>
+        <p class="muted">
+          Review all generated questions before publishing them to students.
+        </p>
+        <label>Topic</label
+        ><input
+          id="topic"
+          required
+          placeholder="PHP arrays for beginners"
+        /><label>Category</label
+        ><select id="category" required></select>
+        <div class="form-grid">
+          <label>Semester<select id="semester"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+          <label>Time limit (minutes)<input id="limit" type="number" min="1" max="180" value="15" /></label>
+          <label>Number of MCQs<input id="mcq-count" type="number" min="0" max="15" value="5" /></label>
+          <label>Marks per MCQ<input id="mcq-marks" type="number" min="1" max="20" value="1" /></label>
+          <label>Number of short questions<input id="short-count" type="number" min="0" max="10" value="2" /></label>
+          <label>Marks per short question<input id="short-marks" type="number" min="1" max="20" value="5" /></label>
+        </div>
+        <div class="quiz-total-preview" id="ai-total-preview">Total: 7 questions · 15 marks</div>
+        <p><button>Generate</button></p>
+      </form>
+    </main>
+    <script>
+      loadAdminForm().catch(error);
+      const updateTotal = () => {
+        const mcqs = Number(document.querySelector("#mcq-count").value) || 0;
+        const shorts = Number(document.querySelector("#short-count").value) || 0;
+        const marks = mcqs * (Number(document.querySelector("#mcq-marks").value) || 0) + shorts * (Number(document.querySelector("#short-marks").value) || 0);
+        document.querySelector("#ai-total-preview").textContent = `Total: ${mcqs + shorts} questions · ${marks} marks`;
+      };
+      document.querySelectorAll("#mcq-count, #short-count, #mcq-marks, #short-marks").forEach(input => input.addEventListener("input", updateTotal));
+    </script>
+  </body>
+</html>

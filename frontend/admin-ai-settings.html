@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Settings | ISP Quiz Portal</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <script src="assets/app.js"></script>
+    <script src="assets/layout.js"></script>
+    <main class="container">
+      <div class="page-heading">
+        <div>
+          <span class="eyebrow">ADMINISTRATION</span>
+          <h1>AI settings</h1>
+          <p class="muted">Connect OpenAI once for every authorised teacher.</p>
+        </div>
+      </div>
+      <div class="settings-layout">
+        <form class="form-card wide-form" onsubmit="event.preventDefault(); saveAISettings();">
+          <div id="message"></div>
+          <div class="key-status" id="key-status">
+            <span class="status-dot"></span><div><b>Checking connection...</b></div>
+          </div>
+          <label for="api-key">OpenAI API key</label>
+          <input id="api-key" type="password" autocomplete="off" placeholder="Paste a new API key" />
+          <p class="field-help">For security, the saved key is never shown again. Leave this empty to keep the existing key.</p>
+          <label for="model">OpenAI model</label>
+          <select id="model" required>
+            <option value="gpt-4o-mini">GPT-4o Mini — fast & economical (recommended)</option>
+            <option value="gpt-4o">GPT-4o — high accuracy</option>
+          </select>
+          <p class="field-help">Only standard mini models are available. Large and Pro models are intentionally disabled.</p>
+          <div class="settings-actions">
+            <button type="submit">Save AI settings</button>
+            <button class="danger-button" id="remove-key" type="button" onclick="removeAIKey()" hidden>Remove API key</button>
+          </div>
+        </form>
+        <aside class="card security-note">
+          <span class="security-icon">⌾</span>
+          <h2>Secure by design</h2>
+          <p>The API key is encrypted before it is saved in MySQL. Teachers can generate quizzes but cannot view or change the key.</p>
+          <ol>
+            <li>Admin adds the key here.</li>
+            <li>Teacher enters a topic in AI Quiz Generator.</li>
+            <li>A draft quiz is created for review.</li>
+            <li>Teacher publishes it to a semester.</li>
+          </ol>
+        </aside>
+      </div>
+    </main>
+    <script>loadAISettings();</script>
+  </body>
+</html>

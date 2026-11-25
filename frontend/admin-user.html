@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Add User</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <script src="assets/app.js"></script>
+    <script src="assets/layout.js"></script>
+    <main class="container">
+      <form
+        class="form-card wide-form"
+        onsubmit="
+          event.preventDefault();
+          saveUser();
+        "
+      >
+        <span class="eyebrow">ADMINISTRATION</span>
+        <h1>Add or update user</h1>
+        <p class="muted">
+          Create login credentials and academic profile together.
+        </p>
+        <div id="message"></div>
+        <div class="form-grid">
+          <label>Full name<input id="name" required /></label
+          ><label>Email<input id="email" type="email" required /></label
+          ><label
+            >New / temporary password<input
+              id="password"
+              type="password" /></label
+          ><label
+            >Role<select id="role">
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="admin">Admin</option>
+            </select></label
+          ><label>Roll number<input id="roll" /></label
+          ><label
+            >Semester<select id="semester">
+              <option value="">Not applicable</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select></label
+          ><label
+            >Department<input
+              id="department"
+              placeholder="Computer Science" /></label
+          ><label>Phone<input id="phone" /></label
+          ><label
+            >Gender<select id="gender">
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select></label
+          ><label class="checkbox"
+            ><input id="active" type="checkbox" checked /> Account active</label
+          >
+        </div>
+        <button>Save user</button>
+      </form>
+    </main>
+    <script>
+      loadAdminUser().catch(error);
+    </script>
+  </body>
+</html>

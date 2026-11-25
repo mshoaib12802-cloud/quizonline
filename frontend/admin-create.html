@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/management.css" />
+  </head>
+  <body>
+    <script src="assets/app.js"></script>
+    <script src="assets/layout.js"></script>
+    <main class="container">
+      <form
+        class="form-card"
+        onsubmit="
+          event.preventDefault();
+          createQuiz();
+        "
+      >
+        <span class="eyebrow">TEACHER WORKSPACE</span>
+        <h1 id="quiz-form-title">Create semester quiz</h1>
+        <div id="message"></div>
+        <label>Quiz title<input id="title" required /></label
+        ><label>Description<textarea id="description"></textarea></label>
+        <div class="form-grid">
+          <label>Category<select id="category" required></select></label
+          ><label
+            >Semester<select id="semester">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select></label
+          ><label
+            >Time limit (minutes)<input
+              id="limit"
+              type="number"
+              value="10"
+              min="1"
+          /></label>
+        </div>
+        <button>Save & add questions</button>
+      </form>
+    </main>
+    <script>
+      loadAdminForm().catch(error);
+    </script>
+  </body>
+</html>

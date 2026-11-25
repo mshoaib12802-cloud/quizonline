@@ -1,0 +1,120 @@
+.action-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.action-links a,
+.action-links button {
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 7px;
+  background: #eef2ff;
+  color: var(--blue);
+  box-shadow: none;
+  font-size: 13px;
+}
+.action-links .danger-link,
+.danger-button {
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
+}
+.editor-section {
+  max-width: 850px;
+  margin: 50px auto;
+}
+.question-list {
+  display: grid;
+  gap: 12px;
+}
+.question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.question-row > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.question-row h3,
+.question-row p {
+  margin: 0;
+}
+.question-row p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.question-number {
+  display: grid;
+  place-items: center;
+  min-width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: var(--blue);
+  font-weight: 800;
+}
+.empty-state {
+  padding: 45px;
+  text-align: center;
+  color: var(--muted);
+  background: #fff;
+  border: 2px dashed var(--border);
+  border-radius: 16px;
+}
+.category-form {
+  max-width: 620px;
+  margin-bottom: 30px;
+}
+.category-form label {
+  margin-top: 0;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.category-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(45, 55, 90, 0.05);
+}
+.category-card .action-links {
+  grid-column: 1 / -1;
+}
+.category-card h3,
+.category-card p {
+  margin: 0;
+}
+.category-card p {
+  color: var(--muted);
+}
+.category-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+}
+@media (max-width: 650px) {
+  .question-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

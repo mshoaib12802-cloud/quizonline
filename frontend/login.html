@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/responsive.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">QuizOnline</a>
+    </header>
+    <main class="container">
+      <form
+        class="form-card"
+        onsubmit="
+          event.preventDefault();
+          login();
+        "
+      >
+        <h1>Login</h1>
+        <div id="message"></div>
+        <label>Email</label><input id="email" type="email" required /><label
+          >Password</label
+        ><input id="password" type="password" required />
+        <p><button>Login</button></p>
+        <p class="muted">
+          Students and teachers receive login credentials from the
+          administrator.
+        </p>
+      </form>
+    </main>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
